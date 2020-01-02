@@ -1,0 +1,33 @@
+{
+  "tabBar": {
+		"custom": true,
+		"color": "#000000",
+		"selectedColor": "#000000",
+		"backgroundColor": "#000000",
+		"list": [
+			{
+				"pagePath": "pages/index/index"
+			},
+			{
+				"pagePath": "pages/info/info"
+      },
+      {
+        "pagePath": "pages/myinfo/myinfo"
+      }
+		]
+	},
+  "pages": [
+    "pages/index/index",
+    "pages/info/info",
+    "pages/myinfo/myinfo"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "NeInfoQuery",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

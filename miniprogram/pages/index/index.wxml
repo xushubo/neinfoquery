@@ -1,0 +1,26 @@
+<view class="content">
+	<image class='background' src="/image/wallpaper.png" mode="aspectFill"></image>
+	<van-image
+  width="100%"
+  height="100px"
+  src="/image/nis.png"
+/>
+<van-cell-group title="网元信息查询">
+  <van-field
+    center
+    clearable
+    placeholder="请输入网元名称"
+    use-button-slot
+    autosize
+    bind:blur="getNeData"
+  >
+    <van-button round slot="button" size="normal" type="primary" custom-style="width: 120px; height: 40px" bind:click="searchNeInfo">搜索一下</van-button>
+  </van-field>
+</van-cell-group>
+<block wx:for="{{neInfo}}" wx:key="key">
+<text>网元名称：{{item.nename}}  </text>
+<text>网元所在机房：{{item.room + item.address}}  </text>
+<text>厂家：{{item.manu}}  </text>
+<text>网管IP：{{item.wgip}}  </text>
+</block>
+</view>

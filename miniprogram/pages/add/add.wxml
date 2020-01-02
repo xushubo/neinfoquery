@@ -1,0 +1,2 @@
+<!--pages/add/add.wxml-->
+<van-button round type="primary" block bind:click="addData">新增数据</van-button>
