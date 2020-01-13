@@ -3,6 +3,11 @@
     "van-card": "@vant/weapp/card/",
     "van-field": "@vant/weapp/field",
     "van-button": "@vant/weapp/button",
-    "van-image": "@vant/weapp/image"
+    "van-image": "@vant/weapp/image",
+    "van-panel": "@vant/weapp/panel",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-tag": "@vant/weapp/tag",
+    "van-divider": "@vant/weapp/divider"
   }
 }

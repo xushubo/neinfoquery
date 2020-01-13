@@ -8,11 +8,25 @@ Page({
 
   },
 
+  copyWgip: function(){
+    wx.setClipboardData({
+      data: this.data.searchResult[this.data.index].wgip,
+    })
+  },
+  callAccendant: function(){
+    var callNumber = this.data.searchResult[this.data.index].accendant.match(/\((.*)\)/)[1];
+    wx.makePhoneCall({
+      phoneNumber: callNumber,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      index: options.index
+    })
   },
 
   /**
@@ -26,7 +40,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      searchResult: wx.getStorageSync('searhResult')
+    })
   },
 
   /**

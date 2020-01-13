@@ -1,11 +1,7 @@
 <!--pages/complex/complex.wxml-->
-<van-button type="primary">主要按钮</van-button>
-<van-button type="warning">警告按钮</van-button>
-<van-button type="danger">危险按钮</van-button>
-<van-card
-  num="2"
-  price="2.00"
-  desc="描述信息"
-  title="商品标题"
-  thumb="{{ imageURL }}"
-/>
+<van-cell value="内容" icon="shop-o" is-link>
+  <view slot="title">
+    <view class="van-cell-text">单元格</view>
+    <van-tag type="danger">标签</van-tag>
+  </view>
+</van-cell>

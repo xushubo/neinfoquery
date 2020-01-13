@@ -11,20 +11,26 @@ Page({
   },
   getNeData: function(e){
     this.setData({
-      sNeInfo: e.detail.value
+      sNeInfo: e.detail
     })
-    console.log(e.detail.value)
+    // console.log(e.detail)
   },
 
   searchNeInfo: function(options){
     // console.log(this.data.sNeInfo)
     neInfoCollection.where({
-      "nename": this.data.sNeInfo
+      // "nename": this.data.sNeInfo
+      'nename': db.RegExp({
+        regexp: '.*' + this.data.sNeInfo + '.*',
+        options: 'i',
+      })
     }).get().then(res =>{
       this.setData({
-        neInfo: res.data
+        neInfo: res.data,
+        searchResultTag: 1
       })
-      // console.log(this.data.neInfo)
+      wx.setStorageSync('searhResult', this.data.neInfo)
+      console.log(this.data.neInfo)
     })
     // console.log(this.data.neInfo)
   },

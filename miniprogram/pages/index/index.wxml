@@ -5,22 +5,33 @@
   height="100px"
   src="/image/nis.png"
 />
-<van-cell-group title="网元信息查询">
+</view>
+<van-cell-group>
   <van-field
     center
     clearable
     placeholder="请输入网元名称"
     use-button-slot
     autosize
-    bind:blur="getNeData"
+    bind:input="getNeData"
   >
     <van-button round slot="button" size="normal" type="primary" custom-style="width: 120px; height: 40px" bind:click="searchNeInfo">搜索一下</van-button>
   </van-field>
 </van-cell-group>
-<block wx:for="{{neInfo}}" wx:key="key">
-<text>网元名称：{{item.nename}}  </text>
-<text>网元所在机房：{{item.room + item.address}}  </text>
-<text>厂家：{{item.manu}}  </text>
-<text>网管IP：{{item.wgip}}  </text>
-</block>
+<view wx:if="{{neInfo.length > 0}}">
+<van-divider contentPosition="left">已找到{{neInfo.length}}个相关网元</van-divider>
 </view>
+<view wx:if="{{neInfo.length<=0&&searchResultTag==1}}">
+<van-divider contentPosition="left">没有找到相关网元</van-divider>
+</view>
+<scroll-view scroll-y="true" style="height: 500rpx">
+<block wx:for="{{neInfo}}" wx:key="key">
+<view>
+<van-cell label="所在机楼：{{item.room}}   IP地址：{{item.wgip}} 厂家：{{item.manu}}" is-link link-type="navigateTo" url="/pages/neinfo/neinfo?index={{index}}">
+  <view slot="title">
+    <view class="van-cell-text">{{item.nename}}</view>
+  </view>
+</van-cell>
+</view>
+</block>
+</scroll-view>
