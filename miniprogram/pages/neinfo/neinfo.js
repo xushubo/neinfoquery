@@ -19,6 +19,78 @@ Page({
       phoneNumber: callNumber,
     })
   },
+  callRoom: function(){
+    var roomNumberList = {
+      xds: '13924135551',
+      xy: '18802045281',
+      zc: '13922231493',
+      hd: '13556087571',
+      ch: '13928828564',
+      xh: '13926204206',
+      fc: '13928843412',
+      kxc: '13925185454',
+      qhd: '13925185461',
+      fh: '13925185462',
+      ns: '13922263314'
+    };
+    switch(this.data.searchResult[this.data.index].room){
+      case '西德胜':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.xds,
+        })
+        break
+      case '信源':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.xy,
+        })
+        break
+      case '增城':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.zc,
+        })
+        break
+      case '花都':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.hd,
+        })
+        break
+      case '从化':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.ch,
+        })
+        break
+      case '西华':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.xh,
+        })
+        break
+      case '芳村':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.fc,
+        })
+        break
+      case '科学城':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.kxc,
+        })
+        break
+      case '清河东':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.qhd,
+        })
+        break
+      case '富华':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.fh,
+        })
+        break
+      case '南沙':
+        wx.makePhoneCall({
+          phoneNumber: roomNumberList.ns,
+        })
+        break
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载

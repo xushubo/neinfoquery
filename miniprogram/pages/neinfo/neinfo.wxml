@@ -1,4 +1,5 @@
 <!--pages/neinfo/neinfo.wxml-->
+<!-- RNC展示界面 -->
 <block wx:if="{{searchResult[index].netype == 'RNC'}}">
   <van-cell-group>
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
@@ -8,7 +9,7 @@
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="LAC" value="{{searchResult[index].lac}}" />
     <van-cell title="RNCID" value="{{searchResult[index].rncid}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="上联CSCE" value="{{searchResult[index].csce}}" />
     <van-cell title="上联PSCE" value="{{searchResult[index].psce}}" />
@@ -20,7 +21,7 @@
     <van-cell title="覆盖区域" value="{{searchResult[index].coverarea}}" />
   </van-cell-group>
 </block>
-
+<!-- 中兴BSC展示界面 -->
 <block wx:if="{{searchResult[index].netype == 'BSC' && searchResult[index].manu == '中兴'}}">
   <van-cell-group>
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
@@ -29,7 +30,7 @@
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="MEID" value="{{searchResult[index].meid}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联CSCE" value="{{searchResult[index].csce}}" />
@@ -40,7 +41,7 @@
     <van-cell title="覆盖区域" value="{{searchResult[index].coverarea}}" />
   </van-cell-group>
 </block>
-
+<!-- 爱立信BSC展示界面 -->
 <block wx:if="{{searchResult[index].netype == 'BSC' && searchResult[index].manu == '爱立信'}}">
   <van-cell-group>
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
@@ -50,7 +51,7 @@
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="CP类型" value="{{searchResult[index].cptype}}" />
     <van-cell title="APG类型" value="{{searchResult[index].apgtype}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联PSCE" value="{{searchResult[index].psce}}" />
@@ -60,7 +61,7 @@
     <van-cell title="覆盖区域" value="{{searchResult[index].coverarea}}" />
   </van-cell-group>
 </block>
-
+<!-- MSC-S展示界面 -->
 <block wx:if="{{searchResult[index].netype == 'MSC-S' && searchResult[index].manu == '爱立信'}}">
   <van-cell-group>
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
@@ -71,7 +72,7 @@
     <van-cell title="CP类型" value="{{searchResult[index].cptype}}" />
     <van-cell title="APG类型" value="{{searchResult[index].apgtype}}" />
     <van-cell title="MSCID" value="{{searchResult[index].mscid}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联MGW" value="{{searchResult[index].mgw}}" />
@@ -79,7 +80,7 @@
     <van-cell title="网元状态" value="{{searchResult[index].status}}" />
   </van-cell-group>
 </block>
-
+<!-- 承载网展示界面 -->
 <block wx:if="{{searchResult[index].domain == '承载网'}}">
   <van-cell-group>
     <van-cell title="网元名称" title-width="120rpx" value="{{searchResult[index].nename}}" />
@@ -87,9 +88,94 @@
     <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
+    <van-cell title="网元状态" value="{{searchResult[index].status}}" />
+  </van-cell-group>
+</block>
+<!-- MGW展示界面 -->
+<block wx:if="{{searchResult[index].netype == 'MGW'}}">
+  <van-cell-group>
+    <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
+    <van-cell title="IP地址" value="{{searchResult[index].wgip}}" bind:click="copyWgip" />
+    <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
+    <van-cell title="业务片区" value="{{searchResult[index].area}}" />
+    <van-cell title="厂家" value="{{searchResult[index].manu}}" />
+    <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
+    <van-cell title="信令点编码" value="{{searchResult[index].spc}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
+    <van-cell title="机架位置" value="{{searchResult[index].position}}" />
+    <van-cell title="上联MSC-S" value="{{searchResult[index].msc_s}}" />
+    <van-cell title="下联BSC" value="{{searchResult[index].bsc}}" />
+    <van-cell title="MSCPOOL" title-width="120rpx" value="{{searchResult[index].mscpool}}" />
+    <van-cell title="网元状态" value="{{searchResult[index].status}}" />
+  </van-cell-group>
+</block>
+<!-- HSS展示界面 -->
+<block wx:if="{{searchResult[index].netype == 'HSS' && searchResult[index].netype == 'HLR' && searchResult[index].netype == 'CUDB' && searchResult[index].netype == 'PG'}}">
+  <van-cell-group>
+    <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
+    <van-cell title="IP地址" value="{{searchResult[index].wgip}}" bind:click="copyWgip" />
+    <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
+    <van-cell title="业务片区" value="{{searchResult[index].area}}" />
+    <van-cell title="厂家" value="{{searchResult[index].manu}}" />
+    <van-cell title="CP类型" value="{{searchResult[index].cptype}}" />
+    <van-cell title="APG类型" value="{{searchResult[index].apgtype}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
+    <van-cell title="网元状态" value="{{searchResult[index].status}}" />
+  </van-cell-group>
+</block>
+<!-- MME展示界面 -->
+<block wx:if="{{searchResult[index].netype == 'MME'}}">
+  <van-cell-group>
+    <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
+    <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
+    <van-cell title="业务片区" value="{{searchResult[index].area}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
+    <van-cell title="厂家" value="{{searchResult[index].manu}}" />
+    <van-cell title="MMEPOOL" title-width="120rpx" value="{{searchResult[index].mmepool}}" />
+    <van-cell title="NRI" value="{{searchResult[index].nri}}" />
+    <van-cell title="MMEC" value="{{searchResult[index].mmec}}" />
+    <van-cell title="MMEGI" value="{{searchResult[index].mmegi}}" />
+    <van-cell title="CNID" value="{{searchResult[index].cnid}}" />
+    <van-cell title="GB业务地址" value="{{searchResult[index].gbip}}" />
+    <van-cell title="GN业务地址" value="{{searchResult[index].gnip}}" />
+    <van-cell title="Iu_C IP" value="{{searchResult[index].iucip}}" />
+    <van-cell title="Iu_U IP" value="{{searchResult[index].iuuip}}" />
+    <van-cell title="S1-MME" value="{{searchResult[index].s1_mme}}" />
+    <van-cell title="S10" value="{{searchResult[index].s10}}" />
+    <van-cell title="S11" value="{{searchResult[index].s11}}" />
+    <van-cell title="S6a" value="{{searchResult[index].s6a}}" />
+    <van-cell title="SGS" value="{{searchResult[index].sgs}}" />
+    <van-cell title="SAU" value="{{searchResult[index].sau}}" />
+    <van-cell title="NID" value="{{searchResult[index].nid}}" />
+    <van-cell title="OM" value="{{searchResult[index].om}}" />
+    <van-cell title="GT" value="{{searchResult[index].gt}}" />
+    <van-cell title="信令点编码" value="{{searchResult[index].spc}}" />
+    <van-cell title="网元状态" value="{{searchResult[index].status}}" />
+  </van-cell-group>
+</block>
+<!-- SEAGW展示界面 -->
+<block wx:if="{{searchResult[index].netype == 'SAEGW'}}">
+  <van-cell-group>
+    <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
+    <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
+    <van-cell title="厂家" value="{{searchResult[index].manu}}" />
+    <van-cell title="OMIP" value="{{searchResult[index].omip}}" />
+    <van-cell title="SGW-S5S8-C" value="{{searchResult[index].sgw_s5s8_c}}" />
+    <van-cell title="SGW-S5S8-U" value="{{searchResult[index].sgw_s5s8_u}}" />
+    <van-cell title="SGW-S4S11-C" value="{{searchResult[index].sgw_s4s11_c}}" />
+    <van-cell title="SGW-S1S4S12-U" value="{{searchResult[index].sgw_s1s4s12_u}}" />
+    <van-cell title="PGW-S5S8-C" value="{{searchResult[index].pgw_s5s8_c}}" />
+    <van-cell title="PGW-S5S8-U" value="{{searchResult[index].pgw_s5s8_u}}" />
+    <van-cell title="GI-FW-IP" value="{{searchResult[index].gi_fw_ip}}" />
+    <van-cell title="APPLE_IP" value="{{searchResult[index].apple_ip}}" />
     <van-cell title="网元状态" value="{{searchResult[index].status}}" />
   </van-cell-group>
 </block>
