@@ -9,7 +9,7 @@
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="LAC" value="{{searchResult[index].lac}}" />
     <van-cell title="RNCID" value="{{searchResult[index].rncid}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="上联CSCE" value="{{searchResult[index].csce}}" />
     <van-cell title="上联PSCE" value="{{searchResult[index].psce}}" />
@@ -30,8 +30,8 @@
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="MEID" value="{{searchResult[index].meid}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
-    <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
+    <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" bind:click="navigateToRoom" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联CSCE" value="{{searchResult[index].csce}}" />
     <van-cell title="上联PSCE" value="{{searchResult[index].psce}}" />
@@ -51,7 +51,7 @@
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="CP类型" value="{{searchResult[index].cptype}}" />
     <van-cell title="APG类型" value="{{searchResult[index].apgtype}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联PSCE" value="{{searchResult[index].psce}}" />
@@ -72,7 +72,7 @@
     <van-cell title="CP类型" value="{{searchResult[index].cptype}}" />
     <van-cell title="APG类型" value="{{searchResult[index].apgtype}}" />
     <van-cell title="MSCID" value="{{searchResult[index].mscid}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联MGW" value="{{searchResult[index].mgw}}" />
@@ -88,7 +88,7 @@
     <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="网元状态" value="{{searchResult[index].status}}" />
@@ -104,7 +104,7 @@
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="设备类型" value="{{searchResult[index].detype}}" />
     <van-cell title="信令点编码" value="{{searchResult[index].spc}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="机架位置" value="{{searchResult[index].position}}" />
     <van-cell title="上联MSC-S" value="{{searchResult[index].msc_s}}" />
@@ -123,7 +123,7 @@
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="CP类型" value="{{searchResult[index].cptype}}" />
     <van-cell title="APG类型" value="{{searchResult[index].apgtype}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="网元状态" value="{{searchResult[index].status}}" />
   </van-cell-group>
@@ -134,7 +134,7 @@
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
     <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
     <van-cell title="业务片区" value="{{searchResult[index].area}}" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="MMEPOOL" title-width="120rpx" value="{{searchResult[index].mmepool}}" />
@@ -164,7 +164,7 @@
   <van-cell-group>
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
     <van-cell title="维护联系人" value="{{searchResult[index].accendant}}" bind:click="callAccendant" />
-    <van-cell title="所在机楼" value="{{searchResult[index].room}}" bind:click="callRoom" />
+    <van-cell title="所在机楼" value="{{searchResult[index].room}}" is-link link-type="navigateTo" url="/pages/roominfo/roominfo?room={{searchResult[index].room}}" />
     <van-cell title="所在机房" title-width="120rpx" value="{{searchResult[index].address}}" />
     <van-cell title="厂家" value="{{searchResult[index].manu}}" />
     <van-cell title="OMIP" value="{{searchResult[index].omip}}" />

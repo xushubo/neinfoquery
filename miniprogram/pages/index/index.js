@@ -17,7 +17,6 @@ Page({
   },
 
   searchNeInfo: function(options){
-    // console.log(this.data.sNeInfo)
     neInfoCollection.where({
       // "nename": this.data.sNeInfo
       'nename': db.RegExp({

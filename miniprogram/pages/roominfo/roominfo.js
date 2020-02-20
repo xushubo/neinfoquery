@@ -1,4 +1,7 @@
-// pages/complex/complex.js
+// pages/roominfo/roominfo.js
+const db = wx.cloud.database()
+const roomInfoCollection = db.collection('RoomInfo')
+
 Page({
 
   /**
@@ -7,12 +10,39 @@ Page({
   data: {
 
   },
+  navigateToRoom: function () {
+    wx.openLocation({
+      latitude: this.data.roomInfo[0].latitude,
+      longitude: this.data.roomInfo[0].longitude,
+    })
+  },
+
+  callFirstPhone: function () {
+    wx.makePhoneCall({
+      phoneNumber: String(this.data.roomInfo[0].firstphone),
+    })
+  },
+
+  callSecondPhone: function () {
+    wx.makePhoneCall({
+      phoneNumber: String(this.data.roomInfo[0].secondphone),
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.room)
+    roomInfoCollection.where({
+      room: options.room
+    }).get().then(res => {
+      this.setData({
+        roomInfo: res.data
+      })
+      console.log(this.data.roomInfo)
+    })
+    // console.log(this.data.roomInfo)
   },
 
   /**

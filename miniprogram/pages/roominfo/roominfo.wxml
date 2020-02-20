@@ -1,0 +1,9 @@
+<!--pages/roominfo/roominfo.wxml-->
+  <van-cell-group>
+    <van-cell title="机楼名称" value="{{roomInfo[0].room}}" />
+    <van-cell title="机楼地址" title-width="120rpx" value="{{roomInfo[0].address}}" bind:click="navigateToRoom" />
+    <van-cell title="值班电话" value="{{roomInfo[0].firstphone}}" bind:click="callFirstPhone" />
+    <van-cell title="备用值班电话" value="{{roomInfo[0].secondphone}}" bind:click="callSecondPhone" />
+    <van-cell title="合作方" value="{{roomInfo[0].agent}}" />
+    <van-cell title="合作方邮箱" value="{{roomInfo[0].agentmail}}" />
+  </van-cell-group>
