@@ -81,7 +81,7 @@
   </van-cell-group>
 </block>
 <!-- 承载网展示界面 -->
-<block wx:if="{{searchResult[index].domain == '承载网'}}">
+<block wx:if="{{searchResult[index].domain == '承载网' || searchResult[index].domain == '干线网CE' || searchResult[index].domain == 'IMS-CE'}}">
   <van-cell-group>
     <van-cell title="网元名称" title-width="120rpx" value="{{searchResult[index].nename}}" />
     <van-cell title="IP地址" value="{{searchResult[index].wgip}}" bind:click="copyWgip" />
@@ -114,7 +114,7 @@
   </van-cell-group>
 </block>
 <!-- HSS展示界面 -->
-<block wx:if="{{searchResult[index].netype == 'HSS' && searchResult[index].netype == 'HLR' && searchResult[index].netype == 'CUDB' && searchResult[index].netype == 'PG'}}">
+<block wx:if="{{searchResult[index].netype == 'HSS' || searchResult[index].netype == 'HLR' || searchResult[index].netype == 'CUDB' || searchResult[index].netype == 'PG'}}">
   <van-cell-group>
     <van-cell title="网元名称" value="{{searchResult[index].nename}}" />
     <van-cell title="IP地址" value="{{searchResult[index].wgip}}" bind:click="copyWgip" />
