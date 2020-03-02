@@ -6,4 +6,6 @@
     <van-cell title="备用值班电话" value="{{roomInfo[0].secondphone}}" bind:click="callSecondPhone" />
     <van-cell title="合作方" value="{{roomInfo[0].agent}}" />
     <van-cell title="合作方邮箱" value="{{roomInfo[0].agentmail}}" />
+    <van-cell title="合作方负责人" value="{{roomInfo[0].agentleader}}" />
+    <van-cell title="合作方负责人电话" value="{{roomInfo[0].agentleaderphone}}" bind:click="callAgentLeaderPhone" />
   </van-cell-group>

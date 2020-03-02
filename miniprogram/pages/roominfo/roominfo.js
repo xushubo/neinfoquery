@@ -29,6 +29,12 @@ Page({
     })
   },
 
+  callAgentLeaderPhone: function () {
+    wx.makePhoneCall({
+      phoneNumber: String(this.data.roomInfo[0].agentleaderphone),
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
